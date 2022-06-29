@@ -4,6 +4,7 @@ function computerPlay() {
   return choice;
 }
 
+//Play round function. Recive two parameter (playerSelection and computerSelection and then return a string that declares the winner)
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "rock") return "TIE";
   else if (playerSelection === "rock" && computerSelection === "scissors")
@@ -25,7 +26,15 @@ function playRound(playerSelection, computerSelection) {
   else return "Error";
 }
 
-const playerSelection = prompt("Choose rock, paper or scissors").toLowerCase();
-const computerSelection = computerPlay();
+//game function. Loop 5 times the playRound function
+function game() {
+  for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt(
+      "Choose rock, paper or scissors"
+    ).toLowerCase();
+    const computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+  }
+}
 
-console.log(playRound(playerSelection, computerSelection));
+game();
